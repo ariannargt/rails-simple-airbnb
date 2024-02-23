@@ -1,22 +1,27 @@
-<div id="<%= dom_id flat %>">
-  <p>
-    <strong>Name:</strong>
-    <%= flat.name %>
-  </p>
+<div class="col-md-4">
+<div id="<%= dom_id flat %>" class="flat-card">
+<div class="flat-card-image" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200')"></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4><%= flat.name %></h4>
+            </div>
+            <p><%= flat.address %></p>
+            <div class="flex">
+              <div class="flex align-items-center">
+                <i class="fa-solid fa-people-line"></i>
+                <span><%= flat.number_of_guests %></span>
+              </div>
+              <div class="flex align-items-center ms-3">
+                <i class="fa-solid fa-euro-sign"></i>
+                <span><%= flat.price_per_night %></span>
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <%= link_to "More info", flat %>
+            <%= link_to "Edit", edit_flat_path(flat), class:"ms-3 text-warning" %>
+            <%= link_to "Remove", flat, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"ms-3 text-danger"%>
+           </div>
 
-  <p>
-    <strong>Address:</strong>
-    <%= flat.address %>
-  </p>
-
-  <p>
-    <strong>Price per night:</strong>
-    <%= flat.price_per_night %>
-  </p>
-
-  <p>
-    <strong>Number of guests:</strong>
-    <%= flat.number_of_guests %>
-  </p>
-
+</div>
 </div>
